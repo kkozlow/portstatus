@@ -1,0 +1,29 @@
+--- 
+cursor_positions: 
+  - :path: app/views/layouts/application.html.erb
+    :cursor_offset: 49
+    :timestamp: 2012-11-30 10:06:46 +01:00
+  - :path: app/controllers/devices_controller.rb
+    :cursor_offset: 239
+    :timestamp: 2011-12-21 10:31:42 +01:00
+  - :path: db/migrate/20111216135034_fix_column_name.rb
+    :cursor_offset: 0
+    :timestamp: 2011-12-16 14:51:14 +01:00
+  - :path: db/migrate/20111216132223_create_user_sessions.rb
+    :cursor_offset: 0
+    :timestamp: 2011-12-16 14:22:22 +01:00
+  - :path: db/migrate/20111216131402_create_users.rb
+    :cursor_offset: 0
+    :timestamp: 2011-12-16 14:14:02 +01:00
+  - :path: app/models/device.rb
+    :cursor_offset: 800
+    :timestamp: 2011-12-21 10:53:54 +01:00
+  - :path: db/migrate/20111215143659_device_community.rb
+    :cursor_offset: 158
+    :timestamp: 2011-12-15 15:38:12 +01:00
+    :selection_offset: 124
+    :block_selection_mode: false
+  - :path: db/migrate/20121130094333_add_flags_to_device.rb
+    :cursor_offset: 279
+    :timestamp: 2012-11-30 11:36:00 +01:00
+files_to_retain: 0

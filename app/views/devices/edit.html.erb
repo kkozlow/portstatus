@@ -1,0 +1,43 @@
+<p>Edytuj urządzenie:<br /></p>
+
+<%= form_for @device do |f| %>
+<table>
+	<tr>
+  	<td><%= f.label "Nazwa" %>:</td>
+  	<td><%= f.text_field :name %></td>
+	</tr>
+	<tr>
+  	<td><%= f.label :ip %>:</td>
+  	<td><%= f.text_field :ip %></td>
+	</tr>
+	<tr>
+  	<td><%= f.label :community %>:</td>
+  	<td><%= f.text_field :community %></td>
+	</tr>
+  <tr>
+  	<td><%= f.label :is_biznes %>:</td>
+  	<td><%= f.check_box :is_biznes %></td>
+	</tr>
+  <tr>
+  	<td><%= f.label :is_mpls %>:</td>
+  	<td><%= f.check_box :is_mpls %></td>
+	</tr>
+  <tr>
+  	<td><%= f.label :is_iptvtransport %>:</td>
+  	<td><%= f.check_box :is_iptvtransport %></td>
+	</tr>
+  <tr>
+  	<td><%= f.label :is_iptvacces %>:</td>
+  	<td><%= f.check_box :is_iptvacces %></td>
+	</tr>
+  <tr>
+  	<td><%= f.label :is_dell %>:</td>
+  	<td><%= f.check_box :is_dell %></td>
+	</tr>
+	<tr>
+	<td><%= f.submit "Zapisz" %></td>
+  	</tr>
+</table>
+<% end %>
+
+<p><%= link_to 'Powrót do spisu urządzeń', devices_path %></p>

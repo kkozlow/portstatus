@@ -1,0 +1,8 @@
+<div id="login_bar">
+			<% if @current_user %>
+			Zalogowany jako: <%= @current_user.username %>
+			<%= link_to 'Wyloguj', logout_path %>
+			<% else %>
+			<%= link_to 'Zaloguj', login_path %>
+			<% end %>
+</div>
