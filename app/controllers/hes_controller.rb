@@ -1,9 +1,10 @@
 class HesController < ApplicationController
 	before_filter :require_user
-  before_filter :verify_admin
+  before_filter :verify_admin, :except=>[:index, :show]
   
   def index
     @hes = He.find(:all, :order => "address ASC")
+    @admin = is_admin(@current_user)
   end
   
   def new
@@ -13,6 +14,7 @@ class HesController < ApplicationController
   def show
     @he = He.find(params[:id])
     @devices = @he.devices
+    @admin = is_admin(@current_user)
   end
 
   def create

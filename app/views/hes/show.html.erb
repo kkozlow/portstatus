@@ -8,8 +8,10 @@
 	<th>Name</th>
 	<th>Ip</th>
 	<th></th>
+	<% if @admin %>
 	<th></th>
 	<th></th>
+	<% end %>
 	
 </tr>
 
@@ -19,8 +21,10 @@
 	<td><%= device[:name] %></td>
 	<td><%= device[:ip] %></td>
 	<td><%= link_to "Pokaż stan portów",  switch_path(device)%></td>
+	<% if @admin %>
 	<td><%= link_to "Edutuj",  edit_device_path(device)%></td>
 	<td><%= link_to("Usuń",  device_path(device), :method => :delete, :confirm => "Czy jestes pewien, że chcesz usunąć urządzenie #{device.name}?")%></td>
+	<% end %>
 	</tr>
 	<% end %>
 </table>

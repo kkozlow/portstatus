@@ -8,8 +8,10 @@
 	<th>Adres</th>
 	<th>Zablokowane dla biznesu</th>
 	<th></th>
+	<% if @admin %>
 	<th></th>
 	<th></th>
+	<% end %>
 </tr>
 
 	<% @hes.each_with_index do |he, index| %>
@@ -18,8 +20,10 @@
 	<td><%= he[:address] %></td>
 	<td><%= he[:blocked] %></td>
 	<td><%= link_to("Pokaż urządzenia",  he_path(he))%></td>
+	<% if @admin %>
 	<td><%= link_to("Edutuj",  edit_he_path(he))%></td>
 	<td><%= link_to("Usuń",  he_path(he), :method => :delete, :confirm => "Czy jestes pewien, że chcesz usunąć ten HE #{he.address}?")%></td>
+	<% end %>
 	</tr>
 	<% end %>
 </table>
