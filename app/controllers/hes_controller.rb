@@ -10,6 +10,11 @@ class HesController < ApplicationController
     @new_he = He.new()
   end
   
+  def show
+    @he = He.find(params[:id])
+    @devices = @he.devices
+  end
+
   def create
     @new_he = He.new(params[:he])
     if @new_he.save

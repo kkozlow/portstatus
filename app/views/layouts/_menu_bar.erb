@@ -1,0 +1,10 @@
+<% if @current_user %>
+				<% if @current_user.username == 'admin' %>
+				<div id="menu_bar">
+				<b>
+				 <%= link_to "Urządzenia", devices_path %>
+				 <%= link_to "Head Endy", hes_path %>
+				</b>
+				</div>
+				<% end %>	
+<% end %>

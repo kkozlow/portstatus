@@ -2,7 +2,7 @@ class He < ActiveRecord::Base
 	has_many :devices
 	validates_presence_of :address
 
-	scope :active, where(:blocked => false)#i.joins(:devices)
+	scope :active, where(:blocked => false)
 	scope :business_mpls, joins(:devices).where(:devices=>{:is_mpls=>true, :is_biznes=>true})
 
 

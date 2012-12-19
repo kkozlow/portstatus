@@ -39,6 +39,16 @@ a:hover {
 	-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
 	}
 
+#menu_bar {
+	background: #f0b86e;
+	font-size:1.25em;
+	border: 1px solid black;
+	text-align: left;
+	margin: 5px auto;
+	padding: 5px 10px;
+	-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+	}
+
 #flash_notice {
 	background: #A4E7A0;
 	border: 1px solid #26722D;
