@@ -1,0 +1,27 @@
+<h2>Lista dostępnych HE:</h2>
+<p>
+<%= link_to "Dodaj nowy HE", new_he_path %>
+</p>
+<table class="ports">
+<tr>
+	<th>Nr</th>
+	<th>Address</th>
+	<th>Is Blocked</th>
+	<th></th>
+	<th></th>
+</tr>
+
+	<% @hes.each_with_index do |he, index| %>
+	<tr>
+	<td><%= index + 1 %></td>
+	<td><%= he[:address] %></td>
+	<td><%= he[:blocked] %></td>
+	<td><%= link_to "Edutuj",  edit_he_path(he)%></td>
+	<td><%= link_to("Usuń",  he_path(he), :method => :delete, :confirm => "Czy jestes pewien, że chcesz usunąć ten HE #{he.address}?")%></td>
+	</tr>
+	<% end %>
+</table>
+
+<p>
+<%= link_to "Dodaj nowy HE", new_he_path %>
+</p>

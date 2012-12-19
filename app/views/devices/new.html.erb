@@ -25,6 +25,10 @@
   	<td><%= f.text_field :community %></td>
 	</tr>
   <tr>
+    <td><%= f.label "Zamontowany w HE" %>:</td>
+    <td><%= f.collection_select :he_id, @hes, :id, :address, :prompt => true %></td>
+  </tr>
+  <tr>
   	<td><%= f.label :is_biznes %>:</td>
   	<td><%= f.check_box :is_biznes %></td>
 	</tr>

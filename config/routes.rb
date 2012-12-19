@@ -18,7 +18,10 @@ Snmp::Application.routes.draw do
   resources :switch
   resources :devices
 
-  resources :user
+  resources :hes
+  resources :head_ends, :only => [:index, :show]
+
+  #resources :user
   resources :user_sessions
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout

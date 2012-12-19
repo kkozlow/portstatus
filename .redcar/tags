@@ -1,4 +1,4 @@
-1354274584
+1354538192
 AddFlagsToDevice	/home/kkozlow/rails/portStatus/db/migrate/20121130094333_add_flags_to_device.rb	class AddFlagsToDevice 
 Application	/home/kkozlow/rails/portStatus/config/application.rb	  class Application 
 ApplicationController	/home/kkozlow/rails/portStatus/app/controllers/application_controller.rb	class ApplicationController 

@@ -3,9 +3,6 @@ cursor_positions:
   - :path: app/views/layouts/application.html.erb
     :cursor_offset: 49
     :timestamp: 2012-11-30 10:06:46 +01:00
-  - :path: app/controllers/devices_controller.rb
-    :cursor_offset: 239
-    :timestamp: 2011-12-21 10:31:42 +01:00
   - :path: db/migrate/20111216135034_fix_column_name.rb
     :cursor_offset: 0
     :timestamp: 2011-12-16 14:51:14 +01:00
@@ -26,4 +23,29 @@ cursor_positions:
   - :path: db/migrate/20121130094333_add_flags_to_device.rb
     :cursor_offset: 279
     :timestamp: 2012-11-30 11:36:00 +01:00
+  - :path: app/controllers/switch_controller.rb
+    :cursor_offset: 111
+    :timestamp: 2012-11-30 11:43:20 +01:00
+  - :path: db/seeds.rb
+    :cursor_offset: 562
+    :timestamp: 2012-11-30 11:20:10 +01:00
+    :selection_offset: 568
+    :block_selection_mode: false
+  - :path: app/controllers/devices_controller.rb
+    :cursor_offset: 239
+    :timestamp: 2011-12-21 10:31:42 +01:00
+  - :path: app/views/devices/new.html.erb
+    :cursor_offset: 381
+    :timestamp: 2012-11-30 11:32:09 +01:00
+  - :path: app/views/devices/edit.html.erb
+    :cursor_offset: 821
+    :timestamp: 2012-11-30 11:32:16 +01:00
+  - :path: app/controllers/application_controller.rb
+    :cursor_offset: 508
+    :timestamp: 2012-11-30 11:42:22 +01:00
+  - :path: app/controllers/user_sessions_controller.rb
+    :cursor_offset: 510
+    :timestamp: 2012-11-30 10:17:06 +01:00
+    :selection_offset: 523
+    :block_selection_mode: false
 files_to_retain: 0

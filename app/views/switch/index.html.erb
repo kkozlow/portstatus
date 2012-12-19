@@ -11,7 +11,7 @@
 
 	<% @devices.each_with_index do |device, index| %>
 	<tr>
-	<td><%= index %></td>
+	<td><%= index + 1 %></td>
 	<td><%= device[:name] %></td>
 	<td><%= device[:ip] %></td>
 	<td><%= link_to "Pokaż stan portów",  switch_path(device)%></td>

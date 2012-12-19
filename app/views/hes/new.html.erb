@@ -1,0 +1,28 @@
+<h2>Dodaj nowy HE:</h2>
+
+
+<p><% if @new_he.errors.any? %>
+      <ul>
+      <% @new_he.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+  <% end %>
+</p>
+
+<%= form_for @new_he do |f| %>
+<table>
+	<tr>
+  	<td><%= f.label "Adres" %>:</td>
+  	<td><%= f.text_field :address %></td>
+	</tr>
+  <tr>
+  	<td><%= f.label :blocked %>:</td>
+  	<td><%= f.check_box :blocked %></td>
+	</tr>
+	<tr>
+	<td><%= f.submit "Dodaj nowy HE"%></td>
+  	</tr>
+</table>
+<% end %>
+<p><%= link_to 'Powrót do spisu HE', hes_path %></p>

@@ -9,6 +9,7 @@ class DevicesController < ApplicationController
   
   def new
     @new_device = Device.new()
+    @hes = He.find(:all, :order => "address ASC")
   end
   
   def create
@@ -23,6 +24,7 @@ class DevicesController < ApplicationController
   end
   
   def edit
+    @hes = He.find(:all, :order => "address ASC")
     @device = Device.find(params[:id])
   end
   

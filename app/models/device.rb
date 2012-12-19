@@ -3,6 +3,10 @@ class Device < ActiveRecord::Base
   before_save :ip_addr_validate
   validates_uniqueness_of :name, :on => :create, :message => 'Urzadzenie o takiej nazwie juz istnieje !'
   validates_uniqueness_of :ip, :on => :create, :message => 'Urzadzenie o takim adresie IP juz istnieje !'
+  belongs_to :he
+
+  scope :mpls, where(:is_mpls => true)
+  scope :biznes, where(:is_biznes => true)
   
   def ports_state
     lookup_values = ["ifIndex", "ifDescr", "ifAlias", "ifAdminStatus", "ifOperStatus"]
@@ -20,7 +24,6 @@ class Device < ActiveRecord::Base
     end
     return ports
     end
-    
     
     #SNMP::Manager.open(:Host => self.ip, :Community => self.community) do |manager|
     #    manager.walk(lookup_values) do |index, descr, ifalias, admin, oper|

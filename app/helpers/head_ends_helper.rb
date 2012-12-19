@@ -1,0 +1,2 @@
+module HeadEndsHelper
+end

@@ -1,6 +1,7 @@
 class SwitchController < ApplicationController
   
   before_filter :require_user
+  before_filter :deny_biznes
   
   def index
     if is_biznes(@current_user)

@@ -1,0 +1,19 @@
+<p>Edytuj HE:<br /></p>
+
+<%= form_for @he do |f| %>
+<table>
+	 <tr>
+    <td><%= f.label "Adres" %>:</td>
+    <td><%= f.text_field :address %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :blocked %>:</td>
+    <td><%= f.check_box :blocked %></td>
+  </tr>
+	<tr>
+	<td><%= f.submit "Zapisz" %></td>
+  	</tr>
+</table>
+<% end %>
+
+<p><%= link_to 'Powrót do spisu HE', hes_path %></p>

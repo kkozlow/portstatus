@@ -24,6 +24,16 @@ class ApplicationController < ActionController::Base
     user.username == 'biznes'
   end
   
+  def deny_biznes
+    if (current_user.username != 'biznes')
+      return true
+    else
+      redirect_to head_ends_path
+      flash[:error] = 'Brak uprawnien dla tej sekcji'
+      return false
+    end
+  end
+
   def require_user
       unless current_user
         flash[:alert] = 'Musisz byc zalogowany'

@@ -1,0 +1,16 @@
+<h2>Lista dostępnych HE zawierająca switche MPLS:</h2>
+
+<table class="ports">
+<tr>
+	<th>Nr</th>
+	<th>Adres</th>
+</tr>
+
+	<% @hes.each_with_index do |he, index| %>
+	<tr>
+	<td><%= index + 1 %></td>
+	<td><%= he[:address] %></td>
+	</tr>
+	<% end %>
+</table>
+
