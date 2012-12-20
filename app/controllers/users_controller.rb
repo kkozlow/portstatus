@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   # GET /users.json
   
   before_filter :require_user
+  before_filter :deny_biznes
   before_filter :verify_admin
   
   def index

@@ -1,6 +1,7 @@
 class DevicesController < ApplicationController
   
   before_filter :require_user
+  before_filter :deny_biznes
   before_filter :verify_admin
   
   def index
@@ -32,7 +33,7 @@ class DevicesController < ApplicationController
     @device = Device.find(params[:id])
       if @device.update_attributes(params[:device])
         flash[:notice] = "Zaktualizowano urzadzenie"
-        redirect_to :action => 'index'
+        redirect_to :back
       else
         flash[:notice] = "Urzadzenie nie zostalo zaktualizowane"
         render :action => 'edit'
@@ -45,6 +46,6 @@ class DevicesController < ApplicationController
     else
       flash[:error] = "Wystapil blad podczas usuwania urzadzenia"
     end
-    redirect_to :action => "index"
+    redirect_to :back
   end
 end

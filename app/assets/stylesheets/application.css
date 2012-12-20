@@ -110,3 +110,13 @@ table.ports td.up {
 table.ports td.down {
 	background: #FF8282;
 }
+
+#foot_bar {
+	background: #8089DD;
+	border: 1px solid black;
+	text-align: center;
+	font-size: 1.0em;
+	margin: 15px 0px 0px 0px;
+	padding: 1px 1px;
+	-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+	}
