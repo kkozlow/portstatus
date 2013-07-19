@@ -20,6 +20,11 @@
   <%= @user.persistence_token %>
 </p>
 
-
+<p>
+	<b>Dostępne urządzenia:</b></br>
+	<% for device in @devices %>
+  	<%= device.name %></br>
+<% end %>
+</p>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -1,56 +1,15 @@
 <h2>Dodaj nowe urządzenie:</h2>
 
 
-<p><% if @new_device.errors.any? %>
+<p><% if @device.errors.any? %>
       <ul>
-      <% @new_device.errors.full_messages.each do |msg| %>
+      <% @device.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
   <% end %>
 </p>
 
-<%= form_for @new_device do |f| %>
-<table>
-	<tr>
-  	<td><%= f.label "Nazwa" %>:</td>
-  	<td><%= f.text_field :name %></td>
-	</tr>
-	<tr>
-  	<td><%= f.label :ip %>:</td>
-  	<td><%= f.text_field :ip %></td>
-	</tr>
-	<tr>
-  	<td><%= f.label :community %>:</td>
-  	<td><%= f.text_field :community %></td>
-	</tr>
-  <tr>
-    <td><%= f.label "Zamontowany w HE" %>:</td>
-    <td><%= f.collection_select :he_id, @hes, :id, :address, :prompt => true %></td>
-  </tr>
-  <tr>
-  	<td><%= f.label :is_biznes %>:</td>
-  	<td><%= f.check_box :is_biznes %></td>
-	</tr>
-  <tr>
-  	<td><%= f.label :is_mpls %>:</td>
-  	<td><%= f.check_box :is_mpls %></td>
-	</tr>
-  <tr>
-  	<td><%= f.label :is_iptvtransport %>:</td>
-  	<td><%= f.check_box :is_iptvtransport %></td>
-	</tr>
-  <tr>
-  	<td><%= f.label :is_iptvacces %>:</td>
-  	<td><%= f.check_box :is_iptvacces %></td>
-	</tr>
-  <tr>
-  	<td><%= f.label :is_dell %>:</td>
-  	<td><%= f.check_box :is_dell %></td>
-	</tr>
-	<tr>
-	<td><%= f.submit "Dodaj nowe urządzenie"%></td>
-  	</tr>
-</table>
-<% end %>
+<%= render 'form' %>
+
 <p><%= link_to 'Powrót do spisu urządzeń', devices_path %></p>

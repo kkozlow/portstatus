@@ -7,14 +7,16 @@
 */
 
 body {
-	background: #F2EFC6;
+	background: #1c1c1c;
 	font-family: sans-serif;
 }
 
 
 a{
-	color: #4D4B28;
+	color: black;
 }
+
+a:visited {color: #FFFFFF;}
 
 a:hover { 
 	background-color: #F2EFC6;
@@ -22,7 +24,7 @@ a:hover {
 	}
 
 #content {
-	background: #8CC3EC;
+	background: #00a8e8;
     padding: 20px 20px 20px 20px;
 	position: static;
 	margin: 1em auto;
@@ -31,7 +33,7 @@ a:hover {
 }
 
 #login_bar {
-	background: #8089DD;
+	background: #204088;
 	border: 1px solid black;
 	text-align: right;
 	margin: 5px auto;
@@ -40,7 +42,7 @@ a:hover {
 	}
 
 #menu_bar {
-	background: #f0b86e;
+	background: #E80088;
 	font-size:1.25em;
 	border: 1px solid black;
 	text-align: left;
@@ -92,7 +94,6 @@ table.ports th {
 	border-style: dashed;
 	border-color: gray;
 	background-color: white;
-	-moz-border-radius: ;
 }
 table.ports td {
 	border-width: 1px;
@@ -100,7 +101,6 @@ table.ports td {
 	border-style: dashed;
 	border-color: gray;
 	background-color: white;
-	-moz-border-radius: ;
 }
 
 table.ports td.up {
@@ -112,7 +112,7 @@ table.ports td.down {
 }
 
 #foot_bar {
-	background: #8089DD;
+	background: #E80088;
 	border: 1px solid black;
 	text-align: center;
 	font-size: 1.0em;

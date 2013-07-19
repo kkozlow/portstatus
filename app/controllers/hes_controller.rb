@@ -3,7 +3,13 @@ class HesController < ApplicationController
   before_filter :verify_admin, :except=>[:index, :show]
   
   def index
-    @hes = He.find(:all, :order => "address ASC")
+    if is_admin(@current_user)
+      @hes = He.find(:all, :order => "address ASC")
+    else
+      @he_ids = @current_user.devices.collect{|device| device.he_id}.uniq
+      @hes = He.find(@he_ids)
+    end
+  
     @admin = is_admin(@current_user)
   end
   
@@ -13,7 +19,13 @@ class HesController < ApplicationController
   
   def show
     @he = He.find(params[:id])
-    @devices = @he.devices
+    if is_admin(@current_user)
+      @devices = @he.devices
+    else
+      @devices = @current_user.devices.where(:he_id => @he)
+    end
+    
+
     @admin = is_admin(@current_user)
   end
 

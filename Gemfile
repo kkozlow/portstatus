@@ -1,13 +1,14 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
-#gem 'rake', '0.8.7'
+gem 'rake', '0.8.7'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
 gem 'execjs'
-gem 'therubyracer'
+gem 'therubyracer', '0.10.2'
+gem 'squeel'
 #gem 'mysql2'
 
 
@@ -18,6 +19,8 @@ group :assets do
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
 end
+
+gem 'pry', group: :development
 
 gem 'jquery-rails'
 

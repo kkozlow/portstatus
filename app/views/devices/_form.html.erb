@@ -1,0 +1,55 @@
+<%= form_for @device do |f| %>
+<table>
+	<tr>
+  	<td><%= f.label "Nazwa" %>:</td>
+  	<td><%= f.text_field :name %></td>
+	</tr>
+	<tr>
+  	<td><%= f.label :ip %>:</td>
+  	<td><%= f.text_field :ip %></td>
+	</tr>
+	<tr>
+  	<td><%= f.label :community %>:</td>
+  	<td><%= f.text_field :community %></td>
+	</tr>
+    <tr>
+    <td><%= f.label "Zamontowany w HE" %>:</td>
+    <td><%= f.collection_select :he_id, @hes, :id, :address, :prompt => true %></td>
+  </tr>
+  <tr><td><hr></td><td><hr></td></tr>
+  <tr>
+  	<td><%= f.label :is_biznes %>:</td>
+  	<td><%= f.check_box :is_biznes %></td>
+	</tr>
+  <tr>
+  	<td><%= f.label :is_mpls %>:</td>
+  	<td><%= f.check_box :is_mpls %></td>
+	</tr>
+  <tr>
+  	<td><%= f.label :is_iptvtransport %>:</td>
+  	<td><%= f.check_box :is_iptvtransport %></td>
+	</tr>
+  <tr>
+  	<td><%= f.label :is_dell %>:</td>
+  	<td><%= f.check_box :is_dell %></td>
+	</tr>
+  <tr><td><hr></td><td><hr></td></tr>
+  <tr>
+    <td>
+      <b>Przypisani użytkownicy:</b>
+    </td>
+  </tr>
+  <% for user in @users %>
+  <tr>  
+    <td>
+    <%= check_box_tag "device[user_ids][]", user.id, @device.users.include?(user) %>
+    <%= user.username %>
+    </td>
+  </tr>
+  <% end %>
+  <tr><td><hr></td><td><hr></td></tr>
+  <tr>
+	<td><%= f.submit "Zapisz" %></td>
+  </tr>
+</table>
+<% end %>

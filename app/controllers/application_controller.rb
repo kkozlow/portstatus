@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   helper_method :current_user
-  helper_method :is_biznes
+  helper_method :is_hebiznes
   
   private
   
@@ -17,15 +17,23 @@ class ApplicationController < ActionController::Base
   end
   
   def is_admin(user)
-    user.username == 'admin'
+    if
+      user.username == 'admin'
+      return true
+    elsif
+      user.username == 'admin2'
+      return true
+    else
+      return false
+    end
   end
   
-  def is_biznes(user)
-    user.username == 'biznes'
+  def is_hebiznes(user)
+    user.username == 'hebiznes'
   end
   
-  def deny_biznes
-    if (current_user.username != 'biznes')
+  def deny_hebiznes
+    if (current_user.username != 'hebiznes')
       return true
     else
       redirect_to head_ends_path
@@ -51,6 +59,9 @@ class ApplicationController < ActionController::Base
     
   def verify_admin
     if (current_user.username == 'admin')
+      return true
+    elsif
+       (current_user.username == 'admin2')
       return true
     else
       redirect_to login_path

@@ -1,9 +1,15 @@
 class Device < ActiveRecord::Base
+
+  #attr_accessible zawsze to dawaj
+
   validates_presence_of :name, :ip, :community
-  before_save :ip_addr_validate
   validates_uniqueness_of :name, :on => :create, :message => 'Urzadzenie o takiej nazwie juz istnieje !'
   validates_uniqueness_of :ip, :on => :create, :message => 'Urzadzenie o takim adresie IP juz istnieje !'
+  
+  has_and_belongs_to_many :users
   belongs_to :he
+
+  before_save :ip_addr_validate
 
   scope :mpls, where(:is_mpls => true)
   scope :biznes, where(:is_biznes => true)

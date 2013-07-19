@@ -2,7 +2,7 @@ class HeadEndsController < ApplicationController
 	before_filter :require_user
   
   def index
-    @hes = He.active.business_mpls
+    @hes = He.order(:address).active.business_mpls.uniq
   end
   
   def show

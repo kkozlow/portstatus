@@ -22,7 +22,13 @@
   <div class="field">
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation %>
-    </div>
+  </div>
+  <% for device in Device.order(:name) %>
+  <div>
+  <%= check_box_tag "user[device_ids][]", device.id, @user.devices.include?(device) %>
+  <%= device.name %>
+  </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

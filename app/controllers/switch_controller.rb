@@ -1,15 +1,10 @@
 class SwitchController < ApplicationController
   
   before_filter :require_user
-  before_filter :deny_biznes
+  before_filter :deny_hebiznes
   
   def index
-    if is_biznes(@current_user)
-      @devices = Device.order("name ASC").where(:is_biznes => true, :is_mpls => true)
-    #jesli nie biznes czyli cns
-    else
-      @devices = Device.find(:all, :order => "name ASC") 
-    end
+      @devices = @current_user.devices.find(:all, :order => "name ASC") 
   end
   
   def new

@@ -1,14 +1,16 @@
-<% if @current_user %>
-				<% if @current_user.username == 'admin' || @current_user.username == 'cns' %>
+<% if @current_user && (current_user.username != 'hebiznes') %>
 				<div id="menu_bar">
 				<b>
-				<% if @current_user.username == 'admin' %>
+				<% if @current_user.username == 'admin' || @current_user.username == 'admin2' %>
 				 <%= link_to "Urządzenia", devices_path %>
 				<% else %>
 				 <%= link_to "Urządzenia", switch_index_path %>
 				<% end %>
 				 <%= link_to "Head Endy", hes_path %>
+				 <% if @current_user.username == 'admin' || @current_user.username == 'admin2' %>
+				 <%= link_to "Użytkownicy", users_path %>
+				 <%= link_to "HE Biznes", head_ends_path %>
+				 <% end %>
 				</b>
 				</div>
-				<% end %>	
 <% end %>

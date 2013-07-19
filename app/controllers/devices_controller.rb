@@ -1,7 +1,7 @@
 class DevicesController < ApplicationController
   
   before_filter :require_user
-  before_filter :deny_biznes
+  before_filter :deny_hebiznes
   before_filter :verify_admin
   
   def index
@@ -9,13 +9,15 @@ class DevicesController < ApplicationController
   end
   
   def new
-    @new_device = Device.new()
-    @hes = He.find(:all, :order => "address ASC")
+    @device = Device.new()
+    @hes = He.order{address.desc}
+    users_to_exclude = ['admin', 'admin2', 'hebiznes']
+    @users = User.where("username NOT IN (?)", users_to_exclude)
   end
   
   def create
-    @new_device = Device.new(params[:device])
-    if @new_device.save
+    @device = Device.new(params[:device])
+    if @device.save
       flash[:notice] = "Pomyslnie dodano urzadzenie"
       redirect_to :action => "index"
     else
@@ -27,9 +29,12 @@ class DevicesController < ApplicationController
   def edit
     @hes = He.find(:all, :order => "address ASC")
     @device = Device.find(params[:id])
+    users_to_exclude = ['admin', 'admin2', 'hebiznes']
+    @users = User.where("username NOT IN (?)", users_to_exclude)
   end
   
   def update
+    params[:device][:user_ids] ||= []
     @device = Device.find(params[:id])
       if @device.update_attributes(params[:device])
         flash[:notice] = "Zaktualizowano urzadzenie"

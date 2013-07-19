@@ -21,7 +21,7 @@ class UserSessionsController < ApplicationController
         format.html { 
           if is_admin(@user_session)
             redirect_to(:devices, :notice => 'Pomyslnie zalogowano')
-          elsif is_biznes(@user_session)
+          elsif is_hebiznes(@user_session)
             redirect_to(:head_ends, :notice => 'Pomyslnie zalogowano')
           else
             redirect_to(switch_index_path, :notice => 'Pomyslnie zalogowano') 

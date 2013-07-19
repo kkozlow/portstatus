@@ -3,11 +3,11 @@ class UsersController < ApplicationController
   # GET /users.json
   
   before_filter :require_user
-  before_filter :deny_biznes
+  before_filter :deny_hebiznes
   before_filter :verify_admin
   
   def index
-    @users = User.all
+    @users = User.order(:username)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-
+    @devices = @user.devices
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -61,6 +61,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
+    params[:user][:device_ids] ||= []
     @user = User.find(params[:id])
 
     respond_to do |format|

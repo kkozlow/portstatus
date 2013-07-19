@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121204144759) do
+ActiveRecord::Schema.define(:version => 20130718085712) do
 
   create_table "devices", :force => true do |t|
     t.string   "name"
@@ -22,10 +22,17 @@ ActiveRecord::Schema.define(:version => 20121204144759) do
     t.boolean  "is_biznes"
     t.boolean  "is_mpls"
     t.boolean  "is_iptvtransport"
-    t.boolean  "is_iptvacces"
     t.boolean  "is_dell"
     t.integer  "he_id"
   end
+
+  create_table "devices_users", :id => false, :force => true do |t|
+    t.integer "device_id"
+    t.integer "user_id"
+  end
+
+  add_index "devices_users", ["device_id", "user_id"], :name => "index_devices_users_on_device_id_and_user_id"
+  add_index "devices_users", ["user_id"], :name => "index_devices_users_on_user_id"
 
   create_table "hes", :force => true do |t|
     t.text     "address"
