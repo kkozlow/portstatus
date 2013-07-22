@@ -21,7 +21,7 @@
 	<td><%= he[:blocked] %></td>
 	<td><%= link_to("Pokaż urządzenia",  he_path(he))%></td>
 	<% if @admin %>
-	<td><%= link_to("Edutuj",  edit_he_path(he))%></td>
+	<td><%= link_to("Edytuj",  edit_he_path(he))%></td>
 	<td><%= link_to("Usuń",  he_path(he), :method => :delete, :confirm => "Czy jestes pewien, że chcesz usunąć ten HE #{he.address}?")%></td>
 	<% end %>
 	</tr>

@@ -4,7 +4,10 @@ class SwitchController < ApplicationController
   before_filter :deny_hebiznes
   
   def index
-      @devices = @current_user.devices.find(:all, :order => "name ASC") 
+    he_ids = @current_user.devices.collect{|dev| dev.he_id}.uniq
+    @hes = He.find(he_ids)
+    #  @devices = @current_user.devices.find(:all, :order => "name ASC") 
+    #  @hes = He.order(:address)
   end
   
   def new

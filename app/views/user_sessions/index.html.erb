@@ -13,13 +13,13 @@
   <tr>
     <td><%= user_session.name %></td>
     <td><%= user_session.password %></td>
-    <td><%= link_to 'Show', user_session %></td>
-    <td><%= link_to 'Edit', edit_user_session_path(user_session) %></td>
-    <td><%= link_to 'Destroy', user_session, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Pokaż', user_session %></td>
+    <td><%= link_to 'Edytuj', edit_user_session_path(user_session) %></td>
+    <td><%= link_to 'Usuń', user_session, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New User session', new_user_session_path %>
+<%= link_to 'Nowe sesja użytkownika', new_user_session_path %>

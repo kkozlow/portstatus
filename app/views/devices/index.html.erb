@@ -1,28 +1,36 @@
+<% index = 0 %>
 <h2>Lista dostępnych urządzeń:</h2>
 <p>
 <%= link_to "Dodaj nowe urządzenie", new_device_path %>
 </p>
 <table class="ports">
 <tr>
-	<th>Nr</th>
-	<th>Name</th>
+	<th></th>
+	<th>Nazwa</th>
 	<th>Ip</th>
 	<th></th>
 	<th></th>
 	<th></th>
-	
 </tr>
-
-	<% @devices.each_with_index do |device, index| %>
-	<tr>
-	<td><%= index + 1 %></td>
-	<td><%= device[:name] %></td>
-	<td><%= device[:ip] %></td>
-	<td><%= link_to "Pokaż stan portów",  switch_path(device)%></td>
-	<td><%= link_to "Edutuj",  edit_device_path(device)%></td>
-	<td><%= link_to("Usuń",  device_path(device), :method => :delete, :confirm => "Czy jestes pewien, że chcesz usunąć urządzenie #{device.name}?")%></td>
-	</tr>
+<% for he in @hes %>
+	<% if !he.devices.empty? %>
+	  <tr>
+		<td>
+	      <b><%= he.address %></b>
+	    </td>
+	  </tr>
+	    <% he.devices.each do |device| %>
+	    	<tr>
+				<td><%= index = index + 1 %></td>
+				<td><%= device[:name] %></td>
+				<td><%= device[:ip] %></td>
+				<td><%= link_to "Pokaż stan portów",  switch_path(device)%></td>
+				<td><%= link_to "Edytuj",  edit_device_path(device)%></td>
+				<td><%= link_to("Usuń",  device_path(device), :method => :delete, :confirm => "Czy jestes pewien, że chcesz usunąć urządzenie #{device.name}?")%></td>
+			</tr>
+		<% end %>
 	<% end %>
+<% end %>
 </table>
 
 <p>

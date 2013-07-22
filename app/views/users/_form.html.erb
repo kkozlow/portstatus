@@ -23,12 +23,19 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation %>
   </div>
-  <% for device in Device.order(:name) %>
+
+  <% for he in @hes %>
   <div>
-  <%= check_box_tag "user[device_ids][]", device.id, @user.devices.include?(device) %>
-  <%= device.name %>
+    <hr>
+    <b><%= he.address %></b>
   </div>
-  <% end %>
+    <% for device in he.devices.order(:name) %>
+    <div>
+    <%= check_box_tag "user[device_ids][]", device.id, @user.devices.include?(device) %>
+    <%= device.name %>
+    </div>
+    <% end %>
+    <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

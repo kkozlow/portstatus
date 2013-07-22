@@ -5,7 +5,8 @@ class DevicesController < ApplicationController
   before_filter :verify_admin
   
   def index
-    @devices = Device.find(:all, :order => "name ASC")
+    #@devices = Device.find(:all, :order => "name ASC")
+    @hes = He.order(:address)
   end
   
   def new

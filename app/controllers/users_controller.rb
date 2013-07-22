@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   
   def index
     @users = User.order(:username)
-
+    @hes = He.order(:address)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -30,7 +30,8 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
-
+    @devices = @user.devices
+    @hes = He.order(:address)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
@@ -40,6 +41,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @hes = He.order(:address)
   end
 
   # POST /users
@@ -49,7 +51,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'Poomyslnie stworzono uzytkownika' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -66,7 +68,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        flash[:notice] = "Zaktualizowano uzytkownika."
+        format.html { redirect_to @user }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
