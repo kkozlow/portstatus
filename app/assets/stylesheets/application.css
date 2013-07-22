@@ -113,11 +113,10 @@ table.ports td.down {
 
 #foot_bar_img {
 	background: white;
-	border: 1px solid black;
 	text-align: center;
 	font-size: 1.0em;
 	margin: 15px 0px 0px 0px;
-	padding: 1px 1px;
+	padding: 0px 0px;
 	-moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
 	}
 
